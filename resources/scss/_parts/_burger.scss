@@ -1,0 +1,52 @@
+.burger{
+  position: relative;
+  @include size(40px, 30px);
+  &__lines{
+    @include center(both);
+    @include size(22px, 15px);
+    pointer-events: none;
+    & span{
+      position: absolute;
+      left: 0;
+      @include size(100%, 3px);
+      background: #575757;
+      border-radius: 2px;
+      pointer-events: none;
+      transition: $default-transition;
+      &:nth-of-type(1){
+        top: 0;
+      }
+      &:nth-of-type(2){
+        top: calc(50% - 1px);
+      }
+      &:nth-of-type(3){
+        top: calc(100% - 3px);
+      }
+    }
+  }
+  &.active{
+    & .burger__lines{
+      span{
+        &:nth-of-type(2){
+          opacity: 0;
+        }
+        &:nth-of-type(1),
+        &:nth-of-type(3){
+          top: calc(50% - 1px);
+        }
+        &:nth-of-type(1){
+          transform: rotate(45deg);
+        }
+        &:nth-of-type(3){
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px){
+  .burger{
+    display: none;
+  }
+}

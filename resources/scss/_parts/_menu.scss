@@ -1,0 +1,132 @@
+.menu{
+  & ul{
+    display: flex;
+  }
+  & li{
+    margin: 0 25px 0 0;
+    &:last-of-type{
+      margin: 0;
+    }
+  }
+  & a{
+    position: relative;
+    padding: 5px 0;
+  }
+  &--header{
+    li{
+      position: relative;
+      & span{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        & svg{
+          fill: transparent;
+          stroke-dashoffset: 100px;
+          stroke-dasharray: 100px;
+          opacity: 0;
+          transition: all 1s ease;
+        }
+        &:nth-of-type(1){
+          top: -15px;
+        }
+        &:nth-of-type(2){
+          bottom: -15px;
+        }
+      }
+      & a{
+        transition: all 1s ease;
+        &:hover{
+          color: #02B549;
+          &~span svg{
+            opacity: 1;
+            stroke: #02B549;
+            stroke-dasharray: 50px;
+          }
+        }
+      }
+    }
+  }
+  &--footer{
+    & ul{
+      flex-direction: column;
+      & a{
+        font-size: 18px;
+        line-height: 22px;
+        color: #FFFFFF;
+        &:before, &:after{
+          @include pseudo();
+          width: 0;
+          height: 1px;
+          background: $secondary-color;
+          transition: $default-transition;
+        }
+        &:before{
+          bottom: 0;
+          left: 0;
+        }
+        &:after{
+          top: 0;
+          right: 0;
+        }
+        &:hover{
+          &:before, &:after{
+            width: 100%;
+          }
+        }
+      }
+    }
+    & li{
+      margin: 0 0 22px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu{
+    position: fixed;
+    top: -200px;
+    left: 0;
+    @include size(100vw, 100vh);
+    display: flex;
+    background: $secondary-color;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    z-index: -1;
+    &.active{
+      top: 0;
+      height: 100%;
+      opacity: 1;
+    }
+    & ul{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10vh -0px;
+      width: 100%;
+      text-align: center;
+      & a{
+        display: block;
+        padding: 8vh 0;
+        font-size: 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@keyframes animMenuBranch {
+  0%{
+    stroke-dashoffset: 100px;
+    stroke-dasharray: 100px;
+  }
+  100%{
+    stroke-dashoffset: 100px;
+    stroke-dasharray: 50px;
+  }
+}

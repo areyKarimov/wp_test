@@ -1,0 +1,41 @@
+/*
+BUTTONS STYLES
+ */
+
+.button {
+  background: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  @extend %buttonsGeometry;
+  @media screen and (max-width: 480px){
+    width: 100%;
+  }
+  .text-label {
+    display: block;
+    transition: $slow-transition;
+  }
+  .text-hover {
+    display: block;
+    transform: translateY($button-height) scaleY(0);
+    transition: $slow-transition;
+  }
+  &:hover {
+    color: $secondary-color;
+    background: #6B5C93;
+    .text-label {
+      transform: translateY(-$button-height) scaleY(0);
+    }
+    .text-hover {
+      transform: translateY(-$button-height) scaleY(1);
+    }
+  }
+  &--fill{
+    background: #6B5C93;
+    color: $secondary-color;
+    &:hover{
+      background: $secondary-color;
+      color:  #6B5C93;
+    }
+  }
+}

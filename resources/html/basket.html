@@ -1,0 +1,91 @@
+<extends src="layout.html">
+    <block name="title">Basket</block>
+    <block name="content">
+        <main class="basket-page">
+            <span class="flower">
+                <img src="../images/flower.png" alt="background">
+            </span>
+            <span class="flower">
+                <img src="../images/flower.png" alt="background">
+            </span>
+            <div class="container">
+                <section class="basket js-basket">
+                    <h1>Ваше замовлення</h1>
+                    <div class="basket__list">
+                        <div class="basket__list-header">
+                            <p>Назва</p>
+                            <div>
+                                <p>Ціна</p>
+                                <p>Кількість</p>
+                                <p>Сума</p>
+                            </div>
+                        </div>
+                        <div class="basket__item js-basket-item">
+                            <div class="basket__img">
+                                <img src="../uploads/basket-img1.jpg" alt="img1">
+                            </div>
+                            <div class="basket__name">
+                                <h2>Ечеверія пурпузорум (Echeveria Purpusorum) червона</h2>
+                                <div class="basket__size">
+                                    <p>Розмір</p>
+                                    <span>4 см</span>
+                                </div>
+                            </div>
+                            <div class="basket__price">
+                                <div class="basket__price-curr">
+                                    <span>80 грн</span>
+                                </div>
+                                <div class="basket__price-counter">
+                                    <button><span></span></button>
+                                    <input name="count" type="number" value="1"
+                                        onload="this.style.width = ((this.value.length + 1) * 8) + 'px';"
+                                        onkeydown="this.style.width = ((this.value.length + 1) * 12) + 'px';">
+                                    <button><span></span></button>
+                                </div>
+                                <div class="basket__price-sum">
+                                    <span>80 грн</span>
+                                </div>
+                            </div>
+                            <button class="basket__remover">
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="basket__item js-basket-item">
+                            <div class="basket__img">
+                                <img src="../uploads/basket-img2.jpg" alt="img1">
+                            </div>
+                            <div class="basket__name">
+                                <h2>Ечеверія пурпузорум (Echeveria Purpusorum) червона</h2>
+                                <div class="basket__size">
+                                    <p>Розмір</p>
+                                    <span>4 см</span>
+                                </div>
+                            </div>
+                            <div class="basket__price">
+                                <div class="basket__price-curr">
+                                    <span>80 грн</span>
+                                </div>
+                                <div class="basket__price-counter">
+                                    <button><span></span></button>
+                                    <input name="count" type="number" value="1"
+                                        onload="this.style.width = ((this.value.length + 1) * 8) + 'px';"
+                                        onkeydown="this.style.width = ((this.value.length + 1) * 15) + 'px';">
+                                    <button><span></span></button>
+                                </div>
+                                <div class="basket__price-sum">
+                                    <span>80 грн</span>
+                                </div>
+                            </div>
+                            <button class="basket__remover">
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="basket__total"><span>Вього до сплати:</span><label>262</label></p>
+                    <a href="catalog.html">Продовжити покупки <span></span></a>
+                    <button class="button button--fill">Оформити замовлення</button>
+                </section>
+            </div>
+        </main>
+    </block>
+</extends>

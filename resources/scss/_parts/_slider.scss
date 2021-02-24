@@ -1,0 +1,201 @@
+.slider{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & .swiper-slide{
+    display: flex;
+    height: auto;
+  }
+  @media screen and (max-width: 1024px){
+    & .swiper-slide{
+      transition: $default-transition;
+    }
+    & .swiper-slide-next+.swiper-slide{
+      opacity: 0.5;
+    }
+  }
+  & .container{
+    max-width: 1270px;
+    padding: 0 80px;
+    @media screen and (max-width: 1024px){
+      padding: 0;
+    }
+  }
+  &__container{
+    margin: 25px 0 0 0;
+  }
+  &__item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    &-link{
+      position: absolute;
+      @include size(100%);
+      top: 0;
+      left: 0;
+      transition: $default-transition;
+      z-index: 1;
+      &:hover{
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+    &-img{
+      height: 420px;
+      @media screen and (max-width: 1024px){
+        height: auto;
+      }
+      & img{
+        @include size(100%);
+        object-fit: cover;
+        @media screen and (max-width: 1024px){
+          @include size(100%, auto);
+        }
+      }
+    }
+    &-content{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      height: auto;
+    }
+    & h4{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: auto;
+    }
+    &-size{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 20%;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 24px;
+      white-space: nowrap;
+      color: #79B4C9;
+      @media screen and (max-width: 1024px){
+        display: none;
+      }
+    }
+    &-review{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: auto;
+      margin-bottom: 15px;
+      width: 100%;
+      @media screen and (max-width: 1024px){
+        margin-bottom: 0;
+      }
+      & div{
+        display: inline-block;
+        & span{
+          position: relative;
+          content: url("../images/star.png");
+          @include size(22px);
+          z-index: 2;
+          @media screen and (max-width: 768px){
+            @include size(10px);
+          }
+        }
+      }
+      & a{
+        margin: 0 0 0 20px;
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 20px;
+        color: #808080;
+        transition: $default-transition;
+        @media screen and (max-width: 768px){
+          font-size: 0.75rem;
+          margin: 0 0 0 5px;
+        }
+        &:hover{
+          color: #02B549;
+        }
+      }
+    }
+    &-cost{
+      align-self: flex-end;
+      & span:first-of-type{
+        position: relative;
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 24px;
+        color: #848C94;
+        @media screen and (max-width: 768px){
+          display: none;
+        }
+        &:before{
+          @include pseudo();
+          margin: 0 5px 0 0;
+          bottom: 0;
+          left: 0;
+          @include size(100%, 1px);
+          background: #848C94;
+          transform-origin: left;
+          transform: rotate(-15deg);
+        }
+      }
+      & span:last-of-type{
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 32px;
+        color: #00B881;
+        @media screen and (max-width: 768px){
+          font-size: 1.1rem;
+
+        }
+      }
+    }
+  }
+  &__controls{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+    top: 210px;
+    @include center(horizontal);
+    @media screen and (max-width: 1024px){
+      display: none;
+    }
+    &-next, &-prev{
+      position: relative;
+      @include size(50px);
+      opacity: 0.8;
+      transition: $default-transition;
+      cursor: pointer;
+      &:before,&:after{
+        @include pseudo();
+      }
+      &:before{
+        @include size(100%);
+        border: 1px solid #9AA8C3;
+        border-radius: 50%;
+      }
+      &:after{
+        @include size(40%);
+        border-top: 2px solid #9AA8C3;
+      }
+    }
+    &-next{
+      &:after{
+        top: 15px;
+        left: 10px;
+        transform: rotate(45deg);
+        border-right: 2px solid #9AA8C3;
+      }
+    }
+    &-prev{
+      &:after{
+        top: 15px;
+        right: 10px;
+        transform: rotate(-45deg);
+        border-left: 2px solid #9AA8C3;
+      }
+    }
+  }
+}

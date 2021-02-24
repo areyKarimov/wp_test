@@ -1,0 +1,10 @@
+.flower{
+  @include size(280px, 240px);
+  & img{
+    @include size(100%);
+    object-fit: fill;
+  }
+  @media screen and (max-width: 768px){
+    @include size(180px, 160px);
+  }
+}

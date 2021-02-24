@@ -1,0 +1,32 @@
+.logo{
+  display: block;
+  @include size(160px, 45px);
+  & svg{
+    @include size(100%);
+    object-fit: contain;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 0;
+    animation: animLogo 5s forwards;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo{
+    @include size(120px, 33px);
+  }
+}
+
+@keyframes animLogo {
+  0%{
+    stroke-dashoffset: 0;
+    stroke: $secondary-color;
+  }
+  80%{
+    stroke-dashoffset: 200;
+    stroke: $secondary-color;
+  }
+  100%{
+    stroke-dashoffset: 240;
+    stroke: transparent;
+  }
+}
